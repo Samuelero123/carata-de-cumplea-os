@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Feliz Cumpleaños, sofia Estevez!</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Corregimos el 'src' y quitamos 'autoplay'. Lo controlaremos con JS -->
+    <audio id="musica-fondo" loop>
+        <source src="imagenes/El Regalo Mas Grande.mp3" type="audio/mpeg">
+        Tu navegador no soporta el elemento de audio.
+    </audio>
+
+    <!-- Contenedor para las partículas de la animación -->
+    <div class="contenedor-animacion">
+        <div class="particula-animada" style="--duracion: 12s; --retraso: 1s; --pos-x: 10%; --tamano: 25px; --color: #e91e63;" data-texto="❤️ Te Amo ❤️"></div>
+        <div class="particula-animada" style="--duracion: 10s; --retraso: 3s; --pos-x: 30%; --tamano: 18px; --color: #ffc107;" data-texto="I Love You"></div>
+        <div class="particula-animada" style="--duracion: 15s; --retraso: 0s; --pos-x: 50%; --tamano: 30px; --color: #e91e63;" data-texto="💖 Je t'aime 💖"></div>
+        <div class="particula-animada" style="--duracion: 11s; --retraso: 4s; --pos-x: 70%; --tamano: 22px; --color: #4CAF50;" data-texto="Ti Amo"></div>
+        <div class="particula-animada" style="--duracion: 13s; --retraso: 2s; --pos-x: 90%; --tamano: 28px; --color: #2196F3;" data-texto="Eu te amo"></div>
+        <div class="particula-animada" style="--duracion: 9s; --retraso: 5s; --pos-x: 20%; --tamano: 15px; --color: #e91e63;" data-texto="愛してる"></div>
+        <div class="particula-animada" style="--duracion: 14s; --retraso: 6s; --pos-x: 80%; --tamano: 24px; --color: #9C27B0;" data-texto="Ich liebe dich"></div>
+        <div class="particula-animada" style="--duracion: 10.5s; --retraso: 7s; --pos-x: 40%; --tamano: 19px; --color: #e91e63;" data-texto="사랑해"></div>
+        <div class="particula-animada" style="--duracion: 12.5s; --retraso: 8s; --pos-x: 60%; --tamano: 26px; --color: #FF5722;" data-texto="Я люблю тебя"></div>
+        <div class="particula-animada" style="--duracion: 15s; --retraso: 14s; --pos-x: 85%; --tamano: 29px; --color: #009688;" data-texto="Jag älskar dig"></div>
+        <div class="particula-animada" style="--duracion: 14.5s; --retraso: 12s; --pos-x: 55%; --tamano: 27px; --color: #E91E63;" data-texto="Σ' αγαπώ"></div>
+        <div class="particula-animada" style="--duracion: 9.5s; --retraso: 13s; --pos-x: 15%; --tamano: 16px; --color: #ffc107;" data-texto="Ik hou van jou"></div>
+    </div>
+
+    <div class="tarjeta">
+        
+        <h1>¡Feliz Cumpleaños a el amor de mi vida! 🎉</h1>
+
+        <p class="mensaje-principal">
+            Hola, mi corazón. Hoy, que es tu cumpleaños y sabes que no puedo estar a tu lado, decidí hacerte esta pequeña carta.
+            Deseo que tengas un día muy bonito, lleno de emociones, y que te la pases muy bien. ¡Te amoooooo! ❤️
+        </p>
+
+        <!-- Botón para reproducir la música -->
+        <button id="boton-musica" class="boton-bonito">▶️ Poner Música</button>
+
+        <h2>Nuestro Álbum de Recuerdos</h2>
+        <div class="galeria">
+            <!-- Cambia los 'data-message' por tus propios recuerdos -->
+            <img src="imagenes/WhatsApp Image 2025-05-21 at 3.19.21 PM (1) - copia.jpeg" alt="Nuestro Recuerdo 1" data-message="Aquí empezó una de nuestras mejores aventuras. ¡Te amo!">
+            <img src="imagenes/WhatsApp Image 2025-05-21 at 3.19.21 PM (2).jpeg" alt="Nuestro Recuerdo 2" data-message="¡Feliz cumpleaños, mi amor! Por muchos más años de felicidad ❤️">
+            <img src="imagenes/WhatsApp Image 2025-05-21 at 3.19.21 PM (3).jpeg" alt="Nuestro Recuerdo 3" data-message="Recuerdo este día como si fuera ayer. ¡Qué bien la pasamos!">
+            <img src="imagenes/WhatsApp Image 2025-05-21 at 3.19.21 PM (5).jpeg" alt="Nuestro Recuerdo 5" data-message="Cada momento contigo es un tesoro.">
+            <img src="imagenes/WhatsApp Image 2025-05-21 at 3.19.21 PM (3) - copia.jpeg" alt="Nuestro Recuerdo 6" data-message="¡No puedo esperar a crear más recuerdos como este a tu lado!">
+            <img src="imagenes/WhatsApp Image 2025-05-21 at 3.19.21 PM - copia (3).jpeg" alt="Nuestro Recuerdo 4" data-message="Esta foto me recuerda lo mucho que nos divertimos juntos.">
+            <img src="imagenes/WhatsApp Image 2025-05-21 at 3.19.21 PM - copia (2).jpeg" alt="Nuestro Recuerdo 7" data-message="Gracias por cada risa y cada momento.">
+            <img src="imagenes/carro foto.jpeg" alt="Nuestro Recuerdo 8" data-message="Eres mi persona favorita en todo el universo. 💖">
+            <img src="imagenes/foto bonita.jpeg" alt="Nuestro Recuerdo 9" data-message="Esa sonrisa tuya ilumina todo mi mundo. ❤️">
+        </div>
+        <div class="detalles">
+            <p>Con todo mi amor,</p>
+            <p class="firma">el amor de tu vida</p>
+        </div>
+
+    </div>
+
+    <script>
+        // --- Efecto de máquina de escribir para el mensaje principal ---
+        const mensajeElemento = document.querySelector('.mensaje-principal');
+        const textoOriginal = mensajeElemento.innerText; // Guardamos el texto original
+        mensajeElemento.innerText = ''; // Limpiamos el párrafo para empezar el efecto
+
+        let i = 0;
+        const velocidadEscritura = 50; // Tiempo en milisegundos entre cada letra. Puedes ajustarlo.
+
+        function efectoMaquinaDeEscribir() {
+            if (i < textoOriginal.length) {
+                mensajeElemento.innerHTML += textoOriginal.charAt(i);
+                i++;
+                setTimeout(efectoMaquinaDeEscribir, velocidadEscritura);
+            }
+        }
+
+        // Iniciar el efecto cuando la página se cargue
+        efectoMaquinaDeEscribir();
+
+        // --- Lógica para el botón de música ---
+        const musicaFondo = document.getElementById('musica-fondo');
+        const botonMusica = document.getElementById('boton-musica');
+
+        botonMusica.addEventListener('click', () => {
+            if (musicaFondo.paused) {
+                musicaFondo.play();
+                botonMusica.textContent = '⏸️ Pausar Música';
+            } else {
+                musicaFondo.pause();
+                botonMusica.textContent = '▶️ Poner Música';
+            }
+        });
+
+        // --- Lógica de la galería ---
+        const imagenesGaleria = document.querySelectorAll('.galeria img');
+
+        imagenesGaleria.forEach(imagen => {
+            imagen.addEventListener('click', () => {
+                const mensaje = imagen.dataset.message;
+                alert(mensaje);
+            });
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,212 @@
+/* -------------------- */
+/* 1. Estilos Globales  */
+/* -------------------- */
+
+body {
+    /* Cambiamos la fuente a "Caveat" para un estilo de carta escrita a mano */
+    font-family: 'Caveat', cursive;
+    background-color: #fce4ec; /* Un color rosa pálido y suave */
+    display: flex; /* Usamos flexbox para centrar la tarjeta */
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Asegura que ocupe toda la altura de la pantalla */
+    margin: 0;
+}
+
+/* -------------------- */
+/* 2. Estilos de la Tarjeta */
+/* -------------------- */
+
+.tarjeta {
+    background-color: #ffffff; /* Fondo blanco para la tarjeta */
+    padding: 40px;
+    border-radius: 15px; /* Esquinas redondeadas */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); /* Sombra suave */
+    text-align: center; /* Centra el texto dentro de la tarjeta */
+    max-width: 90%; /* Máximo ancho en móviles */
+    width: 500px; /* Ancho fijo en escritorio */
+}
+
+/* -------------------- */
+/* 3. Estilos de Texto */
+/* -------------------- */
+
+h1 {
+    color: #e91e63; /* Color vibrante para el título (rosa fuerte) */
+    font-size: 2.5em; /* Tamaño de fuente grande */
+    margin-bottom: 20px;
+}
+
+.mensaje-principal {
+    color: #333; /* Texto oscuro para fácil lectura */
+    /* Aumentamos el tamaño para que la letra de carta sea más legible */
+    font-size: 1.6em;
+    line-height: 1.6; /* Espaciado entre líneas */
+    margin-bottom: 30px;
+}
+
+.firma {
+    font-style: italic;
+    font-weight: bold;
+    color: #e91e63; /* Usa el mismo color del título */
+    margin-top: 5px;
+}
+
+/* -------------------- */
+/* 4. Estilos del Botón */
+/* -------------------- */
+
+.boton-sorpresa {
+    display: inline-block;
+    background-color: #ffc107; /* Un color de acento (amarillo/dorado) */
+    color: #333;
+    padding: 10px 20px;
+    margin-top: 20px;
+    text-decoration: none; /* Quitamos el subrayado del enlace */
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease; /* Efecto de transición suave */
+}
+
+.boton-sorpresa:hover {
+    background-color: #ff9800; /* Color más oscuro al pasar el ratón */
+}
+/* -------------------- */
+/* 5. Estilos del Audio */
+/* -------------------- */
+audio {
+    /* Esconde los controles del audio, si quieres que solo se escuche. 
+       Si quieres que pueda pausarlo, comenta la línea de display: none; */
+    display: none; 
+    position: absolute; /* Para que no afecte el diseño de la tarjeta */
+    top: 10px;
+    right: 10px;
+}
+
+/* -------------------- */
+/* 6. Estilos del Álbum (Galería) */
+/* -------------------- */
+
+h2 {
+    color: #e91e63;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-size: 1.8em;
+}
+
+.galeria {
+    display: grid; /* Usamos CSS Grid para la cuadrícula de fotos */
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* 2 o 3 fotos por fila */
+    gap: 10px; /* Espacio entre las fotos */
+    margin-bottom: 25px;
+}
+
+.galeria img {
+    width: 100%; /* La imagen ocupa todo el espacio de la celda */
+    height: 120px; /* Altura fija para que todas se vean iguales */
+    object-fit: cover; /* Asegura que la imagen cubra el espacio sin distorsionarse */
+    border-radius: 8px; /* Esquinas suaves para las fotos */
+    border: 3px solid #ffc107; /* Un borde dorado para resaltarlas */
+    transition: transform 0.3s ease; /* Efecto suave al pasar el mouse */
+}
+
+.galeria img:hover {
+    transform: scale(1.05); /* Agranda un poco la foto al pasar el mouse */
+}
+
+/* Ajuste del botón, ya que ya no es una "sorpresa", lo quitamos para simplificar */
+.boton-sorpresa {
+    display: none; /* Esto oculta el botón que estaba en el HTML anterior */
+}
+/* -------------------- */
+/* 7. Lluvia de Mensajes de Amor */
+/* -------------------- */
+
+/* Animación de la caída */
+@keyframes caer {
+    0% {
+        transform: translateY(-100%) scale(0.5) rotateZ(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.9;
+    }
+    100% {
+        transform: translateY(100vh) scale(1) rotateZ(360deg);
+        opacity: 0;
+    }
+}
+/* Contenedor para que las partículas no generen scroll */
+.contenedor-animacion {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Estilo base para cada partícula (mensaje) que cae */
+.particula-animada {
+    position: fixed;
+    top: -50px; /* Empiezan por encima de la pantalla */
+    opacity: 0;
+    pointer-events: none;
+    font-weight: bold; /* Para que el texto resalte */
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.7); /* Sombra de texto blanca */
+    
+    /* Usamos variables CSS para personalizar cada partícula desde el HTML */
+    animation: caer linear infinite;
+    animation-duration: var(--duracion);
+    animation-delay: var(--retraso);
+    left: var(--pos-x);
+    font-size: var(--tamano);
+    color: var(--color);
+}
+
+/* Usamos el pseudo-elemento ::before para establecer el texto de cada partícula */
+.particula-animada::before {
+    content: attr(data-texto); /* Leemos el texto desde el atributo 'data-texto' en el HTML */
+}
+
+/* -------------------- */
+/* 8. Diseño Responsivo (Media Queries) */
+/* -------------------- */
+
+@media (max-width: 600px) {
+    body {
+        /* En móvil, es mejor alinear la tarjeta arriba en lugar de al centro verticalmente */
+        align-items: flex-start;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .tarjeta {
+        padding: 20px; /* Reducimos el padding en la tarjeta */
+        width: 90%; /* Aseguramos que ocupe casi todo el ancho */
+    }
+
+    h1 {
+        font-size: 2em; /* Hacemos el título principal un poco más pequeño */
+    }
+
+    .mensaje-principal {
+        font-size: 1em; /* Ajustamos el tamaño del texto principal */
+    }
+}
+
+/* Estilos para el nuevo botón de música */
+.boton-bonito {
+    background-color: #e91e63;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 30px; /* Espacio antes de la galería */
+}
+/* Fin de los estilos CSS */
